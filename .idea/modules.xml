@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mega-bite.iml" filepath="$PROJECT_DIR$/mega-bite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mega-bite-admin/mega-bite-admin.iml" filepath="$PROJECT_DIR$/mega-bite-admin/mega-bite-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mega-bite-api/mega-bite-api.iml" filepath="$PROJECT_DIR$/mega-bite-api/mega-bite-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mega-bite-data/mega-bite-data.iml" filepath="$PROJECT_DIR$/mega-bite-data/mega-bite-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mega-bite-web/mega-bite-web.iml" filepath="$PROJECT_DIR$/mega-bite-web/mega-bite-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mega-bite-admin/mtp-admin.iml" filepath="$PROJECT_DIR$/mega-bite-admin/mtp-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mega-bite-api/mtp-api.iml" filepath="$PROJECT_DIR$/mega-bite-api/mtp-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mega-bite-data/mtp-data.iml" filepath="$PROJECT_DIR$/mega-bite-data/mtp-data.iml" />
+    </modules>
+  </component>
+</project>

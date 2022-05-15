@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="script">
+
+    <!-- jQuery -->
+    <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+    <!-- jQuery UI -->
+    <script th:src="@{/plugins/jquery-ui/jquery-ui.min.js}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script th:src="@{/plugins/bootstrap.js/bootstrap.bundle.min.js}"></script>
+    <!-- ChartJS -->
+    <script th:src="@{/plugins/chart.js/Chart.min.js}"></script>
+
+    <script th:src="@{/plugins/datatables/jquery.dataTables.js}"></script>
+    <script th:src="@{/plugins/datatables-bs4/js/dataTables.bootstrap4.js}"></script>
+
+    <!-- AdminLTE App -->
+    <script th:src="@{/dist/js/adminlte.js}"></script>
+    <script th:src="@{/js/side-menu.js}"></script>
+
+</div>
+</body>
+</html>

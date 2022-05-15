@@ -1,0 +1,257 @@
+.btn-outline-bg-color {
+    border: 1px solid #F5B301;
+}
+
+.btn-outline-bg-color:hover {
+    background: #F5B301;
+    color: white;
+}
+
+.link-color {
+    color: #F5B301;
+}
+
+.link-color:hover {
+    color: #0b2e13;
+}
+
+.modal-header-bg-color {
+    background-color: #EBEBEB;
+}
+
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: normal;
+}
+
+.error {
+    color: #FF0000 !important;
+}
+
+.btn-bg-color {
+    background-color: #F5B301 !important;
+    color: white !important;
+}
+
+.btn-outline-bg-color {
+    border: 1px solid #F5B301;
+}
+
+.btn-outline-bg-color:hover {
+    background: #F5B301;
+    color: white;
+}
+
+.link-bg-color {
+    color: #F5B301;
+}
+
+.link-bg-color:hover {
+    color: #F5B301;
+}
+
+.btn-outline-color {
+    color: black;
+    background-color: transparent;
+    background-image: none;
+    border-color: #F5B301 !important;
+}
+
+.modal-header-bg-color {
+    background-color: #EBEBEB;
+}
+
+.color-primary {
+    color: black;
+}
+
+.btn-secondary-color {
+    background-color: #bcbcbc;
+}
+
+.sidebar-bg-color {
+    background-color: #fda614 !important;
+}
+
+/*sidebar active*/
+.submenu-active {
+    background-color: #de9a28 !important;
+}
+
+.nav-item .text-alignment {
+    display: flex;
+    align-items: center;
+}
+
+.nav .nav-item a:hover.nav-link {
+    background-color: #de9a28;
+}
+
+.sidebar-text-color {
+    color: #FFFFFF;
+}
+
+.issued-bg-color {
+    background-color: #f7cc1e;
+}
+
+/*change icon color   eg. view , edit in table*/
+.icon-color {
+    color: #53abe5;
+}
+
+
+.icon-color:hover {
+    color: #0A87DA;
+}
+
+.icon-inactive-color {
+    color: #808080;
+}
+
+.icon-inactive-color:hover {
+    color: #5a6268;
+}
+
+
+.header-icon-color {
+    color: #F5B301;
+}
+
+/*footer text color*/
+.footer-text-color {
+    color: #F5B301;
+}
+
+.link-color {
+    color: #F5B301;
+}
+
+.link-color:hover {
+    color: #0b2e13;
+}
+
+
+/*content wrapper background color*/
+.content-wrapper-bg-color {
+    background-color: #FFFAF7;
+}
+
+.modal-header-bg-color {
+    background-color: #EBEBEB;
+}
+
+
+/*create page plus icon*/
+.icon-bg-color {
+    background-color: #F5B301;
+}
+
+label .red {
+    color: red;
+}
+
+.label-color {
+    color: #0A87DA;
+}
+
+table,
+thead,
+th {
+    color: #5a6268;
+
+}
+
+.card-header {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.card-header-bg-color {
+    background-color: #F5B301 !important;
+    border-color: transparent !important;
+}
+
+/*////////////////////////////For Product page//////////////////////////////////*/
+
+/*change delete icon color on images*/
+.delete-icon-color {
+    color: #4caf93;
+}
+
+.custom-file-label::after {
+    background-color: #F5B301 !important;
+    color: white !important;
+}
+
+.imagewrap {
+    display: inline-block;
+    position: relative;
+}
+
+.removeImage {
+    position: absolute;
+    Left: 80%;
+    bottom: 85%;
+}
+
+.img-fluid {
+    width: 500px;
+    height: 300px;
+}
+
+.btn-outline-info-disabled {
+    color: #495057;
+    border-color: #495057;
+}
+
+.navbar-brand {
+    margin-right: 50px;
+}
+
+.btn-pry {
+    color: #4caf93;
+}
+
+.btn-pry:hover, .btn-pry:focus, .btn-pry:active {
+    color: white;
+    background-color: #4caf93;
+}
+
+.voucher-label-color {
+    color: #5a6268;
+}
+
+/*change image style */
+.imgStyle {
+    object-fit: scale-down;
+}
+
+/*Form Required*/
+.form-group.required .control-label:after {
+    content: "*";
+    color: red;
+}
+
+.nav-sidebar .nav-item > .nav-link {
+    margin-bottom: .2rem !important;
+    margin-top: .2rem !important;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #F5B301 !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #F5B301 !important;
+    border-color: #F5B301 !important;
+    border-bottom-color: white !important;
+}
+
+.nav-tabs .nav-item a {
+    color: #495057;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #FFF !important;
+}
+

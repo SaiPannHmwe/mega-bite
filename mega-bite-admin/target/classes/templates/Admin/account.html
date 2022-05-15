@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+    <link th:rel="stylesheet" th:href="@{../../plugins/datepicker/bootstrap-datepicker.css}"/>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper content-wrapper-bg-color">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin:5px 5px;">Create Account</h3>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item active">Create Account</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <div class="container-fluid">
+
+                        <!--card body-->
+                        <div class="card-body">
+
+<!--
+                            <form class="form-horizontal" id="form" method="post" th:action="${'/save-account'}"
+                                  modelAttribute="staffRequest" th:object="${staffRequest}"
+                                  enctype="multipart/form-data">
+
+                                <div class="row">
+                                    <div class="card w-100">
+                                        <div class="card-body">
+
+                                            &lt;!&ndash;Staff Role&ndash;&gt;
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">Account Type </label>
+                                                    <div class="form-check-inline">
+                                                        <label class="form-check-label" for="radio1"
+                                                               th:each="status, iStat :${staffStatus}">
+                                                            <input type="radio" class="form-check-input ml-3"
+                                                                   id="radio1" name="role"
+                                                                   th:value="${status}" th:text="${status}"
+                                                                   th:onclick="hideFunction([(${iStat.index+1})])"
+                                                                   checked>
+                                                        </label>
+                                                    </div>
+                                                    &lt;!&ndash;<div class="form-check-inline">
+                                                        <label class="form-check-label" for="radio2">
+                                                            <input type="radio" class="form-check-input" id="radDelivery" name="optradio"
+                                                                   value="Delivery" onclick="hideFunction(0)">Delivery
+                                                        </label>
+                                                    </div>&ndash;&gt;
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                &lt;!&ndash;Name&ndash;&gt;
+                                                <div class="col-md-6">
+                                                    <div class="form-group row required">
+                                                        <label for="name" class="col-sm-11 col-form-label">Name
+                                                            <span class="text-red">*</span>
+                                                        </label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="name"
+                                                                   name="name" th:field="*{name}">
+                                                            <span th:if="${#fields.hasErrors('name')}"
+                                                                  th:errors="*{name}"
+                                                                  class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                &lt;!&ndash;Phone Number&ndash;&gt;
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="mobileNo" class="col-sm-11 col-form-label">Mobile
+                                                            Number<span class="text-red">*</span></label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="mobileNo"
+                                                                   name="phoneNumber" th:field="*{phoneNumber}">
+                                                            <span th:if="${#fields.hasErrors('phoneNumber')}"
+                                                                  th:errors="*{phoneNumber}"
+                                                                  class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+
+                                                &lt;!&ndash;User Name&ndash;&gt;
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="userName" class="col-sm-11 col-form-label">User
+                                                            Name<span class="text-red">*</span></label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="userName"
+                                                                   name="userName" th:field="*{userName}">
+                                                            <span th:if="${#fields.hasErrors('userName')}"
+                                                                  th:errors="*{userName}"
+                                                                  class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                &lt;!&ndash;NRC&ndash;&gt;
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="nrc" class="col-sm-11 col-form-label">NRC
+                                                            <span class="text-red">*</span></label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="nrc" name="nrc"
+                                                                   th:field="*{nrc}">
+                                                            <span th:if="${#fields.hasErrors('nrc')}"
+                                                                  th:errors="*{nrc}"
+                                                                  class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="row">
+
+                                                &lt;!&ndash;Password&ndash;&gt;
+                                                &lt;!&ndash;<div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="password"
+                                                               class="col-sm-11 col-form-label">Password
+                                                            <span class="text-red">*</span></label>
+                                                        <div class="col-sm-11">
+                                                            <input type="password" class="form-control" id="password"
+                                                                   name="password" th:field="*{password}">
+                                                            <span th:if="${#fields.hasErrors('password')}"
+                                                                  th:errors="*{password}"
+                                                                  class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>&ndash;&gt;
+
+                                                &lt;!&ndash;Staff ID&ndash;&gt;
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="staffId" class="col-sm-11 col-form-label">Staff
+                                                            ID<span class="text-red">*</span></label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="staffId"
+                                                                   name="staffId" th:field="*{staffId}">
+                                                            <span th:if="${#fields.hasErrors('staffId')}"
+                                                                  th:errors="*{staffId}" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                &lt;!&ndash;Address&ndash;&gt;
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="address"
+                                                               class="col-sm-11 col-form-label">Address
+                                                            <span class="text-red">*</span></label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="address"
+                                                                   name="address" th:field="*{address}">
+                                                            <span th:if="${#fields.hasErrors('address')}"
+                                                                  th:errors="*{address}"
+                                                                  class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+
+                                                &lt;!&ndash;Entry Date&ndash;&gt;
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="entryDate" class="col-sm-11 col-form-label">Entry
+                                                            Date <span class="text-red">*</span></label>
+                                                        <div class="col-sm-11 input-group">
+                                                            <input type="text" class="form-control" id="entryDate"
+                                                                   th:field="*{entryDate}" onkeypress="return false;"
+                                                                   autocomplete="off" name="entryDate">
+                                                            <div id="datePicker1" class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <i class="fa fa-calendar header-icon-color"
+                                                                           aria-hidden="true"></i>
+                                                                    </span>
+                                                            </div>
+                                                        </div>
+                                                        <span th:if="${#fields.hasErrors('entryDate')}"
+                                                              th:errors="*{entryDate}"
+                                                              class="col-sm-11 text-danger"></span>
+
+                                                    </div>
+                                                </div>
+
+                                                &lt;!&ndash;Department&ndash;&gt;
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-11 col-form-label">Department
+                                                            <span class="text-red">*</span></label>
+                                                        <div class="col-sm-11">
+                                                            <select class="form-control" id="selDepartment"
+                                                                    name="departmentId" th:field="*{departmentId}">
+                                                                <option th:each="department:${departments}"
+                                                                        th:value="${department.id}"
+                                                                        th:text="${department.name}"></option>
+                                                            </select>
+
+                                                        </div>
+                                                        <span th:if="${#fields.hasErrors('departmentId')}"
+                                                              th:errors="*{departmentId}"
+                                                              class="col-sm-11 text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            &lt;!&ndash;<div class="row">&ndash;&gt;
+                                            &lt;!&ndash;Function&ndash;&gt;
+                                            &lt;!&ndash;<div class="col-md-6 mb-2" id="selFunction">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-4 text-right col-form-label">Function</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control" multiple="multiple" id="sel">
+                                                            <option>Upload</option>
+                                                            <option>Manage</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>&ndash;&gt;
+
+                                            &lt;!&ndash;</div>&ndash;&gt;
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-6 pr-0">
+                                        <div class="float-right">
+                                            <a onclick="history.go(-1)">
+                                                <button type="button" class="btn btn-outline-color pl-5 pr-5">
+                                                    Cancel
+                                                </button>
+                                            </a>
+                                            <button class="btn btn-bg-color pl-5 pr-5 ml-2" name="submit"
+                                                    type="submit">Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+-->
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<!-- start myModal-->
+<!--
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Done</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">New staff account has been created successfully.</div>
+            <div class="modal-footer">
+                <a th:href="@{/create-account}">
+                    <button type="button" class="btn text-white btn-bg-color pl-5 pr-5">
+                        OK
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+-->
+
+<!-- Logout Modal -->
+<!--
+<th:block th:include="fragment/logout :: logout "></th:block>
+-->
+
+<!-- script -->
+<!--
+<th:block th:include="fragment/script :: script"></th:block>
+-->
+
+<!--<script th:src="@{/js/account.js}"></script>
+<script th:src="@{/plugins/datepicker/bootstrap-datepicker.js}"></script>-->
+
+<!--<script>
+
+    function hideFunction(x) {
+        if (x == 2) {
+            document.getElementById("selFunction").style.visibility = "visible";
+        } else {
+            document.getElementById("selFunction").style.visibility = "hidden";
+        }
+        return;
+    }
+
+    var successStaff = [[${successStaff}]];
+    if (successStaff == true) {
+        $(document).ready(function () {
+            $('#myModal').modal('show');
+        });
+    }
+
+    function changeStatus() {
+        $('#myModal').modal('hide');
+    }
+
+</script>-->
+
+</body>
+
+</html>

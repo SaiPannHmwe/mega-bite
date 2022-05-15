@@ -1,0 +1,312 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title> Myanma Foreign Trade Bank</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--
+    =========================================================
+    * ArchitectUI HTML Theme Dashboard - v1.0.0
+    =========================================================
+    * Product Page: https://dashboardpack.com
+    * Copyright 2019 DashboardPack (https://dashboardpack.com)
+    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
+    =========================================================
+    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link href="../../css/main.css" rel="stylesheet">
+    <link href="../../fontawesome/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/materialicons.css">
+    <link rel="stylesheet" href="../../assets/bootstrap-4.5.2-dist/css/bootstrap.min.css">
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+
+    <!-- header -->
+    <th:block th:include="fragment/header :: header "></th:block>
+
+    <div class="app-main">
+        <div class="app-sidebar sidebar-shadow">
+            <div class="app-header__logo">
+                <div class="logo-src"></div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                                data-class="closed-sidebar">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="app-header__mobile-menu">
+                <div>
+                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                    </button>
+                </div>
+            </div>
+            <div class="app-header__menu">
+                    <span>
+                            <button type="button"
+                                    class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                <span class="btn-icon-wrapper">
+                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                                </span>
+                    </button>
+                    </span>
+            </div>
+            <div class="scrollbar-sidebar">
+                <div class="app-sidebar__inner">
+                    <ul class="vertical-nav-menu">
+                        <li>
+                            <a href="Dashboard.html">
+                                <i class="material-icons">dashboard</i> Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Profile.html">
+                                <i class="material-icons">account_box</i> Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ApproveRequests.html" class="mm-active">
+                                <i class="material-icons">people_alt</i>Approve Requests
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Branch.html">
+                                <i class="material-icons">account_tree</i>Branch Info
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="material-icons">tune</i></i>Setting
+                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="ChangeLoginPassword.html">
+                                        <i class="metismenu-icon">
+                                        </i>Change Login Password
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ChangeTransactionPassword.html">
+                                        <i class="metismenu-icon">
+                                        </i>Change Transaction Password
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ChangeLanguage.html">
+                                        <i class="metismenu-icon">
+                                        </i>Change Language
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="Services.html">
+                                <i class="material-icons">record_voice_over</i>Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ContactUs.html">
+                                <i class="material-icons">perm_phone_msg</i>Contact Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../Corporate_Login.html" data-toggle="modal"
+                               data-target="#transactionPasswordModal">
+                                <i class="material-icons">exit_to_app</i>Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon"><i class="material-icons">people_alt</i>
+                            </div>
+                            <div>User Details</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pp-card text-center m-3 p-3">
+                    <div class="row mt-4">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Username</b>
+                        </div>
+                        <div class="col-md-3 col-lg-3 text-left">ACE-M001</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Staff ID</b>
+                        </div>
+                        <div class="col-md-3 col-lg-3 text-left">1190</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Role</b>
+                        </div>
+                        <div class="col-md-3 col-lg-3 text-left">Maker</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Type</b>
+                        </div>
+                        <div class="col-md-3 col-lg-3 text-left">User Account Creating</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Created Username</b></div>
+                        <div class="col-md-3 col-lg-3 text-left">ACE-AM004</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Created User's Staff ID</b>
+                        </div>
+                        <div class="col-md-3 col-lg-3 text-left">1780</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Created User's Department</b>
+                        </div>
+                        <div class="col-md-3 col-lg-3 text-left">Banking</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Created User's Position</b></div>
+                        <div class="col-md-3 col-lg-3 text-left">HR Manager</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Created User's Transaction Limit</b></div>
+                        <div class="col-md-3 col-lg-3 text-left">100,000 MMK</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Created User's Bulk Transaction Limit</b></div>
+                        <div class="col-md-3 col-lg-3 text-left">5000,000 MMK</div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 text-left"><b>Created Date</b></div>
+                        <div class="col-md-3 col-lg-3 text-left">20/4/2020</div>
+                    </div>
+                </div>
+                <div class="container-fluid mt-5">
+                    <p> Accessable Menu</p>
+                    <hr/>
+                    <div class="mt-2">
+                        <table class="table table-bordered table-striped w-50" id="transferTable">
+                            <thead>
+                            <tr class="text-white">
+                                <th width="6%" class="text-center">No</th>
+                                <th class="text-center">Menu Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-right">1</td>
+                                <td class="text-left">Remittance</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">2</td>
+                                <td class="text-left">Transfer</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">3</td>
+                                <td class="text-left">Topup</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">4</td>
+                                <td class="text-left">View Remittance</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="container-fluid mt-5">
+                    <p> Accessable Account Number</p>
+                    <hr/>
+                    <div class="mt-2">
+                        <table class="table table-bordered table-striped w-50" id="acc">
+                            <thead>
+                            <tr class="text-white">
+                                <th width="6%" class="text-center">No</th>
+                                <th class="text-center">Account Number</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-right">1</td>
+                                <td class="text-left">0012387916235234</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">2</td>
+                                <td class="text-left">0390187915735833</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">3</td>
+                                <td class="text-left">0009387922535250</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="justify-content-end mr-5 row p-0 m-0">
+                    <button class="btn btn-primary" onclick="location.replace('ApproveRequests.html');"><i
+                            class="fas fa-arrow-left icon-spacing"></i> Back
+                    </button>
+                    <input type="button" class="btn btn-danger" value="Reject"/>
+                    <input type="button" class="btn btn-success" value="Approve"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- logout -->
+    <th:block th:include="fragment/logout :: logout"></th:block>
+
+    <!-- script -->
+    <th:block th:include="fragment/script :: script"></th:block>
+
+    <script src="../../js/common.js "></script>
+    <script>
+        /* loadTheme(); */
+        /* CardDesign2("#card1 "); */
+        CardDesign("#card1 ", "red ", "#56A3F0 ");
+        CardDesign("#card2 ", "green ", "#56A3F0 ");
+        CardDesign("#card3 ", "#ffc107 ", "#56A3F0 ");
+        CardDesign("#card4 ", "#ffc107 ", "#56A3F0 ");
+        CardDesign("#card5 ", "red ", "#56A3F0 ");
+        CardDesign("#card6 ", "green ", "#56A3F0 ");
+        CardDesign("#card7 ", "green ", "#56A3F0 ");
+        CardDesign("#card8 ", "#ffc107 ", "#56A3F0 ");
+        CardDesign("#card9 ", "red ", "#56A3F0 ");
+    </script>
+</body>
+
+</html>

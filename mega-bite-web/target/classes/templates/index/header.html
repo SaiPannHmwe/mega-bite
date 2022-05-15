@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /*.navbar-brand img {
+            max-height: 33px;
+            width: auto;
+        }*/
+
+        .logo {
+            padding-top: 15px;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            height: 80px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .fa,
+        .fas {
+            font-family: 'FontAwesome';
+        }
+
+        ul li a {
+            font-size: 1.1rem;
+            color: #343a40;
+        }
+
+        ul li a.cart:hover {
+            text-decoration: none;
+            color: #d60e96;
+        }
+
+        ul li a.cart .cart-basket {
+            font-size: .6rem;
+            position: absolute;
+            top: -6px;
+            right: -5px;
+            width: 15px;
+            height: 15px;
+            color: #fff;
+            background-color: #418deb;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div th:fragment="header">
+    <div class="sticky-top">
+        <!-- <div class="container">
+             <div class="row">
+                 <div class="col-md-12">-->
+        <nav class="navbar navbar-expand-lg navbar-light navigation">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{../../images/logo/mega-bite-logo-311.svg}" alt="mega-bite logo" style="max-height: 33px;
+            width: auto;">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto main-nav ">
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/}">Home</a>
+                        </li>
+                        <li class="nav-item dropdown dropdown-slide active">
+                            <a class="nav-link dropdown-toggle portfolio-link" data-toggle="dropdown" href="">
+                                <i class="fas fa-globe"></i><!--<span><i
+                                        class="fa fa-angle-down"></i></span>-->
+                            </a>
+
+                            <!-- Dropdown list -->
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/changeLocale?localeCode=en" th:text="#{lang.eng}">Chinese</a>
+                                <a class="dropdown-item" href="/changeLocale?localeCode=mm"
+                                   th:text="#{lang.mm}">Myanmar</a>
+                            </div>
+                        </li>
+                        <li class="nav-item active">
+                            <a th:href="@{/cart}" class="my-cart-icon nav-link portfolio-link position-relative">
+                                <i class="fas fa-cart-plus"></i>
+                                <!-- <button type="button" class="btn btn-primary position-relative">
+                                     Mails-->
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+                                      th:text="${count}">
+                                                0
+                                    <!--<span class="visually-hidden">unread messages</span>-->
+                                            </span>
+                                <!--</button>-->
+                            </a>
+
+                            <!-- <a href="#" class="cart position-relative d-inline-flex nav-link portfolio-link"
+                                aria-label="View your shopping cart">
+                                 <i class="fas fa fa-shopping-cart fa-lg"></i>
+                                 <span class="cart-basket d-flex align-items-center justify-content-center">0</span>
+                             </a>-->
+
+                        </li>
+                        <!--<li class="nav-item dropdown dropdown-slide">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">
+                                Pages <span><i class="fa fa-angle-down"></i></span>
+                            </a>
+                            &lt;!&ndash; Dropdown list &ndash;&gt;
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="about-us.html">About Us</a>
+                                <a class="dropdown-item" href="contact-us.html">Contact Us</a>
+                                <a class="dropdown-item" href="user-profile.html">User Profile</a>
+                                <a class="dropdown-item" href="404.html">404 Page</a>
+                                <a class="dropdown-item" href="package.html">Package</a>
+                                <a class="dropdown-item" href="single.html">Single Page</a>
+                                <a class="dropdown-item" href="store.html">Store Single</a>
+                                <a class="dropdown-item" href="single-blog.html">Single Post</a>
+                                <a class="dropdown-item" href="blog.html">Blog</a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown dropdown-slide">
+                            <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">
+                                Listing <span><i class="fa fa-angle-down"></i></span>
+                            </a>
+                            &lt;!&ndash; Dropdown list &ndash;&gt;
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="category.html">Ad-Gird View</a>
+                                <a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--</div>
+    </div>
+</div>-->
+    </div>
+</div>
+</body>
+</html>

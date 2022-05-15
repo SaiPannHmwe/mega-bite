@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shield DMS | Advertisements</title>
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <th:block th:include="fragment/style :: head "></th:block>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;"
+                            th:text="#{advertisement.data.toggle.title}"></h3>
+                        <a class="btn-xs icon-bg-color" href="/advertisements/new"
+                           data-toggle="tooltip" data-placement="top"
+                           th:title="#{new.advertisement.data.toggle.title}"> <i class="fa fa-plus m-0 text-white"></i>
+                        </a>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin: 5px 5px;">
+                            <li class="breadcrumb-item active" th:text="#{advertisement.data.toggle.title}"></li>
+                        </ol>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+                    <!--start form-->
+                    <div class="card container-fluid">
+                        <div class="card-body">
+                            <table id="advertisement-table" class="table table-responsive w-100 d-block d-md-table">
+                                <thead>
+                                <tr>
+                                    <th th:text="#{table.header.id}"></th>
+                                    <th th:text="#{table.header.no}"></th>
+                                    <th th:text="#{table.header.name}"></th>
+                                    <th th:text="#{table.header.price}"></th>
+                                    <th th:text="#{table.header.image}"></th>
+                                    <th style="text-align:center;" th:text="#{table.header.view}"></th>
+                                    <th style="text-align:center;" th:text="#{table.header.edit}"></th>
+                                    <th style="text-align:center;" th:text="#{table.header.delete}"></th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+
+        <!-- start myModal-->
+        <!-- end myModal-->
+    </div>
+
+    <!-- start myModal-->
+    <div id="deleteConfirmModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Advertisement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary-color text-white pl-5 pr-5"
+                            data-dismiss="modal">Close
+                    </button>
+                    <a id="delRef">
+                        <button type="button" class="btn text-white btn-bg-color pl-5 pr-5">
+                            Delete
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- ./script -->`
+<th:block th:include="fragment/script :: script"></th:block>
+<script th:src="@{../plugins/datatables/jquery.dataTables.js}"></script>
+<script th:src="@{../plugins/datatables-bs4/js/dataTables.bootstrap4.js}"></script>
+<script th:src="@{/js/ShopMenu/shop-menu.js}"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="../../assets/images/MFTB logo small.png" type="image/png">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/test-sidebar :: sidebar "></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Transportation</h3>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item"><a href="/transportation">Transportation</a></li>
+                            <li class="breadcrumb-item active">Transportation</li>
+                        </ol>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+                    <div class="container-fluid">
+
+                        <div class="card-body">
+
+                            <div class="row">
+
+                                <div class="card w-100">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <!--Name-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="orderNumber" class="col-sm-11 col-form-label">Order
+                                                        Number</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="orderNumber"
+                                                               name="name"
+                                                               th:value="${transportation.orderNumber}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Name-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="customerName"
+                                                           class="col-sm-11 col-form-label">Customer</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="customerName"
+                                                               name="name"
+                                                               th:value="${transportation.customer}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Name-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="staffName" class="col-sm-11 col-form-label">Delivery
+                                                        Man</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="staffName"
+                                                               name="name"
+                                                               th:value="${transportation.staff}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Name-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="fromGate" class="col-sm-11 col-form-label">From
+                                                        Gate</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="fromGate"
+                                                               name="name"
+                                                               th:value="${transportation.fromGate}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Name-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="toGate" class="col-sm-11 col-form-label">To Gate</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="toGate" name="name"
+                                                               th:value="${transportation.toGate}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Name-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="fee" class="col-sm-11 col-form-label">Transportation
+                                                        Fee</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="fee" name="name"
+                                                               th:value="${transportation.transportationFee}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" th:if="${transportation.image!=null}">
+                                            <div class="col-md-6">
+                                                <label class="col-sm-4 control-label font-weight-bold">Image </label>
+                                                <div class="col-sm-12 mb-3">
+                                                    <img th:src="*{transportation.image.path}"
+                                                         class="img-thumbnail img-responsive"
+                                                         style="max-height: 400px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card w-100"
+                                     th:if="${not #lists.isEmpty(childOrder)}">
+                                    <div class="card-header text-secondary">Related Orders</div>
+                                    <!--card body-->
+                                    <div class="card-body">
+
+                                        <table class="table table-responsive w-100 d-block d-md-table"
+                                               id="related-order-table">
+                                            <thead>
+                                            <tr class="text-white">
+                                                <th width="6%">No</th>
+                                                <th class="text-center">Order ID</th>
+                                                <th class="text-center">Total Charge</th>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Address</th>
+                                                <th class="text-center">Phone</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="child, iStat : ${childOrder}">
+                                                <th class="text-center" th:text="${iStat.index+1}"></th>
+                                                <th class="text-center" th:text="${child.orderNumber}"></th>
+                                                <th class="text-center" th:text="${child.totalCharge}"></th>
+                                                <th class="text-center" th:text="${child.customerName}"></th>
+                                                <th class="text-center" th:text="${child.address}"></th>
+                                                <th class="text-center" th:text="${child.phoneNumber}"></th>
+                                            </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+
+</div>
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<script th:src="@{../../js/related-order.js}"></script>
+
+</body>
+</html>
