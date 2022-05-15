@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="message">
+    <!-- Message Modal -->
+    <div class="modal" id="showMessageModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center modal-header-bg-color">
+                    <h5 class="modal-title text-bold">Order Not Selected</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Please select the orders.</p>
+                    <button type="button" class="btn btn-bg-color float-right" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mega-Bite | Create Menu</title>
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Menu
+                        </h3>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item"><a href="/menu">Menu</a>
+                            </li>
+                            <li class="breadcrumb-item active">Menu</li>
+                        </ol>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+                    <div class="card container-fluid">
+                        <div class="card-body">
+                            <form id="form" method="post" th:action="@{/menu/save}"
+                                  modelAttribute="collectForm" th:object="${menuForm}">
+                                <div class="row">
+                                    <div class="form-group required col-md-6">
+                                        <label class="control-label font-weight-bold" th:text="#{table.header.name}">Name</label>
+                                        <div>
+                                            <input type="text" class="form-control" id="name"
+                                                   th:field="*{name}">
+                                            <span th:if="${#fields.hasErrors('name')}"
+                                                  th:errors="*{name}" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group required col-md-6">
+                                        <label class="control-label font-weight-bold" th:text="#{table.header.name.chinese}">Name</label>
+                                        <div>
+                                            <input type="text" class="form-control" id="nameChinese"
+                                                   th:field="*{nameChinese}">
+                                            <span th:if="${#fields.hasErrors('nameChinese')}"
+                                                  th:errors="*{nameChinese}" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-4">
+                                    <div class="form-group col-md-6"></div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <div>
+                                                    <a class="btn btn-secondary form-control"
+                                                       id="cancelBtn" role="button"
+                                                       th:href="@{/menu}">Cancel</a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div>
+                                                    <button class="btn btn-bg-color form-control" id="submitBtn"
+                                                            name="submit" type="submit">Save
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="id" th:field="*{id}" th:value="${menuForm.id}">
+
+                                <!--error messages-->
+                                <input type="hidden" id="menu_not_blank" th:value="#{menu.not.blank}"/>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+</div>
+<!-- ./script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+</body>
+</html>

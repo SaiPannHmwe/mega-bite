@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- SITE TITTLE -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mega-Bite</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../static/index/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/index/plugins/bootstrap/css/bootstrap-slider.css">
+
+    <!-- Font Awesome -->
+    <link href="../static/index/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">-->
+
+    <style>
+        .plus-minus {
+            position: relative;
+        }
+
+        .plus, .minus {
+            cursor: pointer;
+        }
+
+        .vsm-text:hover {
+            color: #FF5252;
+        }
+
+        .menu-img {
+            overflow: hidden;
+            height: 80px;
+            width: 80px;
+        }
+
+        .border-top {
+            border-top: 1px solid #EEEEEE !important;
+            margin-top: 20px;
+            padding-top: 15px;
+        }
+
+        .card {
+            margin: 40px 0px;
+            padding: 40px 50px;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        input, textarea {
+            background-color: #F3E5F5;
+            padding: 8px 15px 8px 15px;
+            width: 100%;
+            border-radius: 5px !important;
+            box-sizing: border-box;
+            border: 1px solid #F3E5F5;
+            font-size: 15px !important;
+            color: #000 !important;
+            font-weight: 300;
+        }
+
+        input:focus, textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 1px solid #9FA8DA;
+            outline-width: 0;
+            font-weight: 400;
+        }
+
+        button:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            outline-width: 0;
+        }
+
+        #tax {
+            border-top: 1px lightgray solid;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        .btn-blue {
+            border: none;
+            border-radius: 10px;
+            background-color: #673AB7;
+            color: #fff;
+            padding: 8px 15px;
+            margin: 20px 0px;
+            cursor: pointer;
+        }
+
+        .btn-blue:hover {
+            background-color: #311B92;
+            color: #fff;
+        }
+
+        #checkout {
+            float: left;
+        }
+
+        #check-amt {
+            float: right;
+        }
+
+        @media screen and (max-width: 768px) {
+            .book, .book-img {
+                width: 100px;
+                height: 150px;
+            }
+
+            .card {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .mob-text {
+                font-size: 13px;
+            }
+
+            .pad-left {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--header-->
+<th:block th:include="index/header :: header "></th:block>
+
+<div class="container px-4 py-5 mx-auto">
+    <div class="row d-flex justify-content-center border-bottom">
+        <div class="col-4">
+            <h4 class="heading">Your Orders</h4>
+        </div>
+        <div class="col-8">
+            <div class="row text-right">
+                <div class="col-3">
+                    <h6 class="mt-2">Menu</h6>
+                </div>
+                <div class="col-3">
+                    <h6 class="mt-2">Quantity</h6>
+                </div>
+                <div class="col-3">
+                    <h6 class="mt-2">Price</h6>
+                </div>
+                <div class="col-3">
+                    <h6 class="mt-2">Action</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:each="cart:${listCart}">
+        <div class="row d-flex  justify-content-center my-3 border-bottom">
+            <div class="my-auto col-4">
+                <div class="menu-img">
+                    <img class="img-fluid mx-auto d-block" th:src="${cart.url}">
+                </div>
+            </div>
+            <div class="my-auto col-8">
+                <div class="row text-right">
+                    <div class="col-3">
+                        <h6 class="mob-text" th:text="${cart.name}">Digital</h6>
+                    </div>
+                    <div class="col-3">
+                        <div class="pl-md-0 pl-2 plus-minus">
+                            <!--<div th:if="${cart.quantity > 1}">-->
+                            <!--<span th:if="${cart.quantity > 1}" class="fa fa-minus-square vsm-text minus"></span>-->
+                            <span th:if="${cart.quantity > 1}">
+                                <a th:href="@{/menu/{id}/removeQuantity(id=${cart.id})}"
+                                   class="portfolio-link">
+                                <i class="fa fa-minus-square vsm-text plus">
+                                </i>
+                            </a>
+                            </span>
+                            <!--</div>-->
+                            <span class="px-md-3 px-1" th:text="${cart.quantity}">2</span>
+                            <!--onclick="addQuantity('${cart.quantity}', '${cart.id}')"-->
+                            <a th:href="@{/menu/{id}/addQuantity(id=${cart.id})}"
+                               class="portfolio-link">
+                                <i class="fa fa-plus-square vsm-text plus">
+                                </i>
+                            </a>
+                            <!--<span class="fa fa-plus-square vsm-text plus"
+                                  th:onclick="|deleteUser(${cart.quantity},${cart.id})|"></span>-->
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <h6 class="mob-text" th:text="${cart.price}">$9.99</h6>
+                    </div>
+                    <div class="col-3">
+                        <a th:href="@{/menu/{id}/remove(id=${cart.id})}" class="btn btn-danger text-white">Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center" th:if="${total > 0}">
+        <div class="col-lg-12">
+            <div class="card">
+                <form id="form" method="post" th:action="@{/menu/add/cart}"
+                      modelAttribute="cartForm" th:object="${cartForm}">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="row px-2">
+                                <div class="form-group col-md-6">
+                                    <label class="form-control-label">Name</label>
+                                    <div>
+                                        <input type="text" id="name" name="name" placeholder="Johnny Doe" required>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="form-control-label">Phone Number</label>
+                                    <div>
+                                        <input type="text" id="phoneNumber" name="phoneNumber"
+                                               placeholder="09 222 333 444" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row px-2">
+                                <div class="form-group col-md-12">
+                                    <label class="form-control-label">Address</label>
+                                    <div>
+                                        <input type="text" id="address" name="address"
+                                               placeholder="street name, quarter name, township name" required>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 mt-2">
+                            <div class="row d-flex justify-content-between px-4">
+                                <p class="mb-1 text-left">Grand total</p>
+                                <h6 class="mb-1 text-right" th:text="${total}">$23.49</h6>
+                            </div>
+                            <!--<div class="row d-flex justify-content-between px-4">
+                                <p class="mb-1 text-left">Shipping</p>
+                                <h6 class="mb-1 text-right">$2.99</h6>
+                            </div>-->
+                            <!--<div class="row d-flex justify-content-between px-4" id="tax">
+                                <p class="mb-1 text-left">Total (tax included)</p>
+                                <h6 class="mb-1 text-right">$26.48</h6>
+                            </div>-->
+                            <button class="btn-block btn-blue">
+                        <span>
+                            <span id="checkout">Checkout</span>
+                            <span id="check-amt" th:text="${total}">$26.48</span>
+                        </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center" th:if="${total == 0}">
+        <div class="col-lg-12">
+            <div class="card">
+                <h3 class="text-center">Thanks for visiting us!</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<th:block th:include="index/footer :: footer "></th:block>
+
+<script>
+    function deleteUser(quantity, id) {
+
+    }
+
+    $(document).ready(function () {
+
+        function deleteUser(quantity, id) {
+
+        }
+
+        $('.radio-group .radio').click(function () {
+            $('.radio').addClass('gray');
+            $(this).removeClass('gray');
+        });
+
+        $('.plus-minus .plus').click(function () {
+            var count = $(this).parent().prev().text();
+            $(this).parent().prev().html(Number(count) + 1);
+        });
+
+        $('.plus-minus .minus').click(function () {
+            var count = $(this).parent().prev().text();
+            $(this).parent().prev().html(Number(count) - 1);
+        });
+
+    });
+</script>
+</body>
+</html>

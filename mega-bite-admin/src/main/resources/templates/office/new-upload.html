@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <th:block th:include="fragment/test-header :: header"></th:block>
+
+    <th:block th:include="fragment/test-sidebar :: sidebar"></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper content-wrapper-bg-color">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin:5px 5px;">Upload Order</h3>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item"><a href="/upload-order">orders</a></li>
+                            <li class="breadcrumb-item active">Upload</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <div class="card container-fluid ">
+
+                        <div class="card-body">
+                            <!-- start form -->
+                            <form method="POST" enctype="multipart/form-data" th:action="@{/orders/upload}">
+                                <label class="col-sm-4 control-label font-weight-bold ">Choose File</label>
+                                <div class="col-sm-8">
+                                    <div class="mb-3">
+                                        <input type="file" name="file" class="custom-file-input" id="file"
+                                               accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                                        <label class="custom-file-label" id="selectedFile">Please choose a file</label>
+                                    </div>
+                                    <input type="submit" value="Upload" class="btn btn-bg-color"/>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div> <!--end card-->
+
+                </div>
+                <!-- /.row -->
+                <!-- Main row -->
+
+                <!-- /.row (main row) -->
+            </div><!-- /.container-fluid -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<script>
+    var selDiv = "";
+    document.addEventListener("DOMContentLoaded", init, false);
+
+    function init() {
+        document.querySelector('#file').addEventListener('change', handleFileSelect, false);
+        selDiv = document.querySelector("#selectedFile");
+    }
+
+    function handleFileSelect(e) {
+        if (!e.target.files) return;
+        selDiv.innerHTML = "";
+        var files = e.target.files;
+        for (var i = 0; i < files.length; i++) {
+            var f = files[i];
+            selDiv.innerHTML += f.name + "<br/>";
+        }
+    }
+
+</script>
+
+</body>
+
+</html>

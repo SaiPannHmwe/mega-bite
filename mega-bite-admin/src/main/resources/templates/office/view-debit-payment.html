@@ -1,0 +1,409 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/test-sidebar :: sidebar "></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper content-wrapper-bg-color">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Debit Payment Detail</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item"><a th:href="@{/debit-payments}">Debit Payments</a>
+                            </li>
+                            <li class="breadcrumb-item active">Debit Payment Detail</li>
+                        </ol>
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <div class="container-fluid">
+
+                        <!--card body-->
+                        <div class="card-body">
+
+                            <div class="row">
+
+                                <div class="card w-100">
+                                    <div class="card-header text-secondary">Customer Info</div>
+                                    <div class="card-body">
+
+                                        <div class="row">
+                                            <!--Customer Name-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="customerName" class="col-sm-11 col-form-label">Customer
+                                                        Name
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="customerName"
+                                                               name="customerName" th:value="${payment.customerName}"
+                                                               readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Phone Number-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="phoneNumber" class="col-sm-11 col-form-label">Phone
+                                                        Number
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="phoneNumber"
+                                                               name="phoneNumber" th:value="${payment.phoneNumber}"
+                                                               readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <!--Address-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="address" class="col-sm-11 col-form-label">Address
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="address"
+                                                               name="address" th:value="${payment.address}"
+                                                               readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="card w-100">
+                                    <div class="card-header text-secondary">Order Info</div>
+                                    <div class="card-body">
+
+                                        <div class="row">
+                                            <!--orderNumber-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="orderNumber" class="col-sm-11 col-form-label">Order
+                                                        Id</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="orderNumber"
+                                                               name="orderNumber"
+                                                               th:value="${payment.orderNumber}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Order Status-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="status" class="col-sm-11 col-form-label">Order Status
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="status"
+                                                               name="status"
+                                                               th:value="${payment.status}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <!--Weight-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="Weight" class="col-sm-11 col-form-label">
+                                                        Weight
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="Weight"
+                                                               name="totalAmount"
+                                                               th:value="${payment.weight}+kg" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Total Amount-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="totalAmount" class="col-sm-11 col-form-label">
+                                                        Amount
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="totalAmount"
+                                                               name="totalAmount"
+                                                               th:value="${payment.totalAmount}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <!--Delivery Fee-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="deliveryFee" class="col-sm-11 col-form-label">Delivery
+                                                        Fee
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="deliveryFee"
+                                                               name="deliveryFee"
+                                                               th:value="${payment.deliveryFee}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Transportation Fee-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="transportationFee" class="col-sm-11 col-form-label">Transportation
+                                                        Fee
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="transportationFee"
+                                                               name="transportationFee"
+                                                               th:value="${payment.transportationFee}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <!--Total charge Amount-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="discountAmount" class="col-sm-11 col-form-label">
+                                                        Total Charge
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="discountAmount"
+                                                               name="address" th:value="${payment.totalCharge}"
+                                                               readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="card w-100">
+                                    <div class="card-header text-secondary">Payment Info</div>
+                                    <div class="card-body">
+
+                                        <div class="row">
+                                            <!--orderNumber-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="amount" class="col-sm-11 col-form-label">Paid
+                                                        Amount</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="amount"
+                                                               name="amount"
+                                                               th:value="${payment.amount}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Order Status-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="paymentChannelName" class="col-sm-11 col-form-label">Payment
+                                                        Method
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="paymentChannelName"
+                                                               name="paymentChannelName"
+                                                               th:value="${payment.paymentChannelName}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <!--Delivery Fee-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="type" class="col-sm-11 col-form-label">Status
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="type"
+                                                               name="type"
+                                                               th:value="${payment.type}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Total Amount-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="date" class="col-sm-11 col-form-label">Date
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="date"
+                                                               name="date"
+                                                               th:value="${payment.date}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" th:if="${payment.payableReceivableAmount &gt; 0}">
+                                            <!--Delivery Fee-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="type" class="col-sm-11 col-form-label">Payable/Receivable
+                                                    </label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="payable"
+                                                               name="type"
+                                                               th:value="${payment.payableReceivableAmount}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" th:if="${payment.image!=null}">
+                                            <div class="col-md-6">
+                                                <label class="col-sm-4 control-label font-weight-bold">Image </label>
+                                                <div class="col-sm-12 mb-3">
+                                                    <img th:src="*{payment.image.path}"
+                                                         class="img-thumbnail img-responsive"
+                                                         style="max-height: 400px;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="card w-100"
+                                     th:if="${not #lists.isEmpty(childOrder)}">
+                                    <div class="card-header text-secondary">Related Orders</div>
+                                    <!--card body-->
+                                    <div class="card-body">
+
+                                        <table class="table table-responsive w-100 d-block d-md-table"
+                                               id="related-order-table">
+                                            <thead>
+                                            <tr class="text-white">
+                                                <th width="6%">No</th>
+                                                <th class="text-center">Order ID</th>
+                                                <th class="text-center">Total Charge</th>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Address</th>
+                                                <th class="text-center">Phone</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="child, iStat : ${childOrder}">
+                                                <th class="text-center" th:text="${iStat.index+1}"></th>
+                                                <th class="text-center" th:text="${child.orderNumber}"></th>
+                                                <th class="text-center" th:text="${child.totalCharge}"></th>
+                                                <th class="text-center" th:text="${child.customerName}"></th>
+                                                <th class="text-center" th:text="${child.address}"></th>
+                                                <th class="text-center" th:text="${child.phoneNumber}"></th>
+                                            </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6"></div>
+                                <div class="col-sm-6 pr-0">
+                                    <div class="float-right">
+                                        <a onclick="history.go(-1)">
+                                            <button type="button" class="btn btn-outline-color pl-3 pr-3">
+                                                Back
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<script th:src="@{../../js/related-order.js}"></script>
+
+</body>
+
+</html>

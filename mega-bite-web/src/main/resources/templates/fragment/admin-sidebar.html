@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shield DMS</title>
+</head>
+<body>
+<div th:fragment="sidebar">
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar elevation-2  sidebar-bg-color ">
+
+        <!-- Brand Logo -->
+        <a href="/" class="brand-link">
+            <img src="../../images/logo/logo.png" alt="Mega-bite Logo" class="brand-image "/>
+            <span class="brand-text  text-white">Mega-Bite</span>
+        </a>
+
+        <hr class="mt-0">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+
+            <!-- Sidebar Menu -->
+            <nav>
+                <ul class="nav nav-pills  nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+
+                    <li class="nav-item ">
+                        <a th:href="@{/dashboard}" class="nav-link text-alignment">
+                            <i class="material-icons sidebar-text-color">dashboard</i>
+                            <span class="sidebar-text-color">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a th:href="@{/shops}" class="nav-link text-alignment">
+                            <!--<i class="nav-icon fas fa-code-branch sidebar-text-color"></i>-->
+                            <i class="material-icons sidebar-text-color">storefront</i>
+                            <span class="sidebar-text-color">Shop</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a th:href="@{/menu}" class="nav-link text-alignment">
+                            <!--<i class="nav-icon fas fa-code-branch sidebar-text-color"></i>-->
+                            <i class="material-icons sidebar-text-color">assignment</i>
+                            <span class="sidebar-text-color">Menu</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a th:href="@{/orders}" class="nav-link text-alignment">
+                            <!--<i class="nav-icon fas fa-code-branch sidebar-text-color"></i>-->
+                            <i class="material-icons sidebar-text-color">shopping_cart</i>
+                            <span class="sidebar-text-color">Order</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a th:href="@{'/change-password'}" class="nav-link text-alignment">
+                            <i class="material-icons sidebar-text-color">lock</i>
+                            <span class="sidebar-text-color">Change Password</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{'/login'}" class="nav-link text-alignment" data-toggle="modal"
+                           data-target="#transactionPasswordModal">
+                            <i class="material-icons sidebar-text-color">logout</i>
+                            <span class="sidebar-text-color">Logout</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a href="#" class="nav-link">
+                            <i class="sidebar-text-color"></i>
+                            <p class="sidebar-text-color"></p>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+</div>
+<!-- ./script -->
+</body>
+</html>

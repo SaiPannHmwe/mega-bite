@@ -1,0 +1,176 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper content-wrapper-bg-color">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin:5px 5px;">Payment Channels</h3>
+                        <a class="btn-xs icon-bg-color" href="/payment-channels/new" data-toggle="tooltip"
+                           data-placement="top" title="Create Payment Channel">
+                            <i class="fa fa-plus m-0 text-white"></i>
+                        </a>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item active">Payment Channel</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <div class="card container-fluid">
+
+                        <!--card body-->
+                        <div class="card-body">
+
+                            <div th:switch="${paymentChannels}">
+                                <h2 th:case="null">No record found!!</h2>
+                                <div th:case="*">
+                                    <table class="table table-responsive w-100 d-block d-md-table"
+                                           id="transferTable">
+                                        <thead>
+                                        <tr class="text-white">
+                                            <th width="6%" class="text-center">No</th>
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Number</th>
+                                            <th width="7%" class="text-center">View</th>
+                                            <th width="7%" class="text-center">Edit</th>
+                                            <th width="7%" class="text-center">Deactivate</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                        <tr th:each="paymentChannel, iStat : ${paymentChannels}">
+                                            <td class="text-center" th:text="${iStat.index+1}">No</td>
+                                            <td class="text-center" th:text="${paymentChannel.name}">Ye Maung</td>
+                                            <td class="text-center" th:text="${paymentChannel.number}">Ye Maung</td>
+                                            <td class="text-center primary-color">
+                                                <a th:href="@{/payment-channels/{id}/detail(id=${paymentChannel.id})}">
+                                                    <i class="far fa-eye"></i>
+                                                </a>
+                                            </td>
+                                            <td class="text-center primary-color">
+                                                <a th:href="@{/payment-channels/{id}/edit(id=${paymentChannel.id})}">
+                                                    <i class="fas fa-user-edit pending"></i>
+                                                </a>
+                                            </td>
+
+                                            <td class="text-center primary-color">
+                                                <a th:href="${'/payment-channels/'+paymentChannel.id+'/ban'}"
+                                                   data-toggle="modal" th:data-id="${paymentChannel.id}"
+                                                   th:data-name="${paymentChannel.name}"
+                                                   data-target="#deactivateModal">
+                                                    <i class="fas fa-trash-alt pending"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+
+                                        <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<!-- start deactivateModal-->
+<div id="deactivateModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Deactivate Department</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-color pl-5 pr-5"
+                        data-dismiss="modal">Close
+                </button>
+                <a id="banAgent">
+                    <button type="button" class="btn text-white btn-bg-color pl-5 pr-5">
+                        Deactivate
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end deactivateModal-->
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<script th:src="@{../../js/payment-channel.js}"></script>
+
+</body>
+
+</html>

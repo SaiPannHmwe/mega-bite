@@ -1,0 +1,134 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="../../assets/images/MFTB logo small.png" type="image/png">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/test-sidebar :: sidebar "></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper content-wrapper-bg-color">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin:5px 5px;">Completed Payments</h3>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item active">Completed Payments</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <div class="card container-fluid">
+
+                        <!--card body-->
+                        <div class="card-body">
+
+                            <ul class="nav nav-tabs nav-fill">
+                                <li class="nav-item">
+                                    <a class="nav-link " th:href="${'/credit-payments'}">Credit Payment</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="${'/debit-payments'}">Debit Payment</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Completed Payment</a>
+                                </li>
+                            </ul>
+
+                            <div class="mt-3">
+                                <table class="table table-responsive w-100 d-block d-md-table"
+                                       id="completed-payment-table">
+
+                                    <thead>
+                                    <tr class="text-white">
+                                        <th width="5%">Id</th>
+                                        <th width="5%">No</th>
+                                        <th class="text-center" width="15%">Order Id</th>
+                                        <th class="text-center" width="15%">Received Amount</th>
+                                        <th class="text-center" width="15%">Payable/Receivable</th>
+                                        <th class="text-center" width="15%">Payment Channel</th>
+                                        <th class="text-center" width="15%">Date</th>
+                                        <th class="text-center" width="10%">Is Approved</th>
+                                        <th class="text-center" width="5%">View</th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                    </tfoot>
+
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<script th:src="@{/js/completed-payment.js}"></script>
+</body>
+
+</html>

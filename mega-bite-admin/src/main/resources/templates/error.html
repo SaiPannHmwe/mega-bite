@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Error Page </title>
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <th:block th:include="fragment/style :: head "></th:block>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<!-- start myModal-->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close" onclick="window.history.back()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card container-fluid" style="height: 70vh;">
+                    <div class="card-body text-center">
+                        <div class="mt-5">
+                            <h1 class="text-bold display-3" style="color:#065957" th:text="${status}"></h1>
+                            <p th:text="${error}"></p>
+                        </div>
+
+                        <br/><br/>
+                        <p class="text-bold" th:text="${message}" style="color:#303a45;"></p>
+                        <br/>
+                        <button class="btn text-white btn-bg-color pl-3 pr-3" onclick="window.history.back()">Go
+                            Back
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                 <a th:href="${'/login'}">
+                     <button type="button" class="btn text-white btn-bg-color pl-5 pr-5">
+                         OK
+                     </button>
+                 </a>
+             </div>-->
+
+        </div>
+    </div>
+</div>
+
+<!--<div class="wrapper">
+    &lt;!&ndash; header &ndash;&gt;
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    &lt;!&ndash; sidebar &ndash;&gt;
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+    &lt;!&ndash; Content Wrapper. Contains page content &ndash;&gt;
+    <div class="content-wrapper">
+        &lt;!&ndash; Content Header (Page header) &ndash;&gt;
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Error</h3>
+                    </div>
+                </div>
+                &lt;!&ndash; /.row &ndash;&gt;
+            </div>
+            &lt;!&ndash; /.container-fluid &ndash;&gt;
+        </div>
+        &lt;!&ndash; /.content-header &ndash;&gt;
+
+        &lt;!&ndash; Main content &ndash;&gt;
+        <section class="content">
+            <div class="container-fluid">
+                &lt;!&ndash; Small boxes (Stat box) &ndash;&gt;
+                <div class="justify-content-center">
+                    <div class="card container-fluid" style="height: 70vh;">
+                        <div class="card-body text-center">
+                            <div class="mt-5">
+                                <h1 class="text-bold display-3" style="color:#065957" th:text="${status}"></h1>
+                                <p th:text="${error}"></p>
+                            </div>
+
+                            <br/><br/>
+                            <p class="text-bold" th:text="${message}" style="color:#303a45;"></p>
+                            <br/>
+                            <button class="btn text-white btn-bg-color pl-3 pr-3" onclick="window.history.go(-1)">Go
+                                Back
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            &lt;!&ndash; /.container-fluid &ndash;&gt;
+        </section>
+        &lt;!&ndash; /.content &ndash;&gt;
+
+    </div>
+
+</div>-->
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#myModal').modal('show');
+    });
+
+</script>
+
+</body>
+</html>

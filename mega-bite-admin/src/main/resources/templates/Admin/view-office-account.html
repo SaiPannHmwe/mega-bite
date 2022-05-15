@@ -1,0 +1,268 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper content-wrapper-bg-color">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Office Staff Detail</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item"><a th:href="@{/office-staffs}">Office Staffs</a>
+                            </li>
+                            <li class="breadcrumb-item active">Office Staff Detail</li>
+                        </ol>
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <div class="container-fluid">
+
+                        <!--card body-->
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="card w-100">
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                            <!--Name-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="name" class="col-sm-11 col-form-label">Name</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="name" name="name"
+                                                               th:value="${staff.name}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Phone Number-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="mobileNo" class="col-sm-11 col-form-label">Mobile
+                                                        No.</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="mobileNo"
+                                                               name="phoneNumber" th:value="${staff.phoneNumber}"
+                                                               readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <!--User Name-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="userName" class="col-sm-11 col-form-label">User
+                                                        Name</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="userName"
+                                                               name="userName"
+                                                               th:value="${staff.userName}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--NRC-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="nrc" class="col-sm-11 col-form-label">NRC</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="nrc" name="nrc"
+                                                               th:value="${staff.nrc}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row">
+
+                                            <!--Staff Role-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="role" class="col-sm-11 col-form-label">Account
+                                                        Type</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="role"
+                                                               name="role" th:value="${staff.role}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Address-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="address"
+                                                           class="col-sm-11 col-form-label">Address</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="address"
+                                                               name="address"
+                                                               th:value="${staff.address}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <!--Staff ID-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label for="staffID" class="col-sm-11 col-form-label">Staff
+                                                        Id</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="staffID"
+                                                               name="staffID"
+                                                               th:value="${staff.staffId}" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Department-->
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-11 col-form-label">Department</label>
+                                                    <div class="col-sm-11">
+                                                        <input type="text" class="form-control" id="selDepartment"
+                                                               name="departmentId" th:value="${staff.departmentName}"
+                                                               readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <!--Entry Date-->
+                                            <div class="col-md-6" th:if="${staff.entryDate!=null}">
+                                                <div class="form-group row">
+                                                    <label for="entryDate"
+                                                           class="col-sm-11 col-form-label">Start Working Date</label>
+                                                    <div class="col-sm-11 ">
+                                                        <input type="text" class="form-control" id="entryDate"
+                                                               name="entryDate" th:value="${staff.entryDate}" readonly>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Resign Date-->
+                                            <div class="col-md-6" th:if="${staff.resignDate!=null}">
+                                                <div class="form-group row">
+                                                    <label for="resignDate"
+                                                           class="col-sm-11 col-form-label">End Date</label>
+                                                    <div class="col-sm-11 ">
+                                                        <input type="text" class="form-control" id="resignDate"
+                                                               name="resignDate" th:value="${staff.resignDate}"
+                                                               readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6"></div>
+                                <div class="col-sm-6 pr-0">
+                                    <div class="float-right">
+                                        <div th:unless="${staff.isActive}">
+                                            <a onclick="history.go(-1)">
+                                                <button type="button" class="btn btn-outline-color pl-3 pr-3">
+                                                    Cancel
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div th:if="${staff.isActive}">
+                                            <a onclick="history.go(-1)">
+                                                <button type="button" class="btn btn-outline-color pl-3 pr-3">
+                                                    Cancel
+                                                </button>
+                                            </a>
+                                            <a th:href="${'/staffs/'+staff.id+'/reset'}"
+                                               data-toggle="modal" th:data-id="${staff.id}" style="float:right;"
+                                               th:data-name="${staff.staffId}" data-target="#resetPasswordModal">
+                                                <button class="btn btn-bg-color pl-3 pr-3 ml-2" name="submit"
+                                                        type="button">Reset Password
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<!-- Reset Password Modal -->
+<th:block th:include="fragment/reset-password :: reset-password "></th:block>
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<script th:src="@{../../js/view-staff.js}"></script>
+
+</body>
+
+</html>

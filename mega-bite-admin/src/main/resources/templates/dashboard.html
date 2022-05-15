@@ -1,0 +1,267 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="../../assets/images/MFTB logo small.png" type="image/png">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Mega-Bite | Dashboard</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+    <style type="text/css">
+
+        .card-footer {
+            background-color: #05726f !important;
+            /*border-color: transparent !important;*/
+        }
+
+        .card-issue-footer {
+            background-color: #F7CC1E;
+        }
+
+        .card-footer-green {
+            background-color: green !important;
+        }
+
+        .card-footer-red {
+            background-color: red !important;
+        }
+
+        .nav-tabs {
+            border-bottom: none;
+        }
+
+        .nav .nav-item a.active:hover.nav-link {
+            background-color: #FFFFFF;
+        }
+
+        .shop-card {
+            border-left: 8px solid #05726f;
+            padding: 5px;
+        }
+
+        .summary-card {
+            padding: 5px;
+        }
+
+        .card-text {
+            color: #05726f;
+            font-weight: bold;
+        }
+
+        .chartWrapper {
+            position: relative;
+        }
+
+        .chartWrapper > canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+        }
+
+        .chartAreaWrapper {
+            width: auto;
+            overflow-x: scroll;
+        }
+
+        .ui-datepicker-calendar {
+            display: none;
+        }
+
+        select {
+            font-family: Cursive;
+        }
+
+
+    </style>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="justify-content-center">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Dashboard</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                    <div class="searchData row mt-3">
+                        <div class="card h-100" style="width: 100%;">
+                            <div class="card-body">
+                                <form class="form-horizontal" id="form" th:object="${shop}">
+                                    <input type="hidden" id="shopId" th:value="${shop.id}">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-12 control-label font-weight-bold">Name</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" id="name"
+                                                           th:value="${shop.name}" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-12 control-label font-weight-bold">Address</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" id="address"
+                                                           th:value="${shop.address}" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-12 control-label font-weight-bold">Phone
+                                                    Number</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" id="phoneNumber"
+                                                           th:value="${shop.phoneNumber}" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-4">
+                                                <div class="form-group col-md-6"></div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6"></div>
+                                                        <div class="form-group col-md-6">
+                                                            <div>
+                                                                <a class="btn btn-bg-color form-control"
+                                                                   id="cancelBtn" role="button"
+                                                                   th:href="@{/shops/{id}/edit(id=${shop.id})}">Edit</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 justify-content-center">
+                                            <label class="col-sm-12 control-label font-weight-bold"
+                                                   th:text="#{table.header.popular.shop}">
+                                            </label>
+                                            <div class="col-sm-12 mb-3">
+                                                <img th:src="*{url}" class="img-thumbnail img-responsive"
+                                                     style="max-height: 400px;">
+                                            </div>
+                                            <input type="hidden" id="rl" th:field="*{url}">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-6">
+                        <h5 class="m-0 text-dark">Daily Condition</h5>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+                <div class="searchData row mt-3">
+                    <div class="col-md-4">
+                        <a th:href="@{'/shops'}">
+                            <div class="card container p-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <span class="font-weight-bold text-green"
+                                                  th:text="${megaCounts.get(0)}"></span> <br>
+                                            <label class="text-gray">Total Shops</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <i class='fas fa-parachute-box fa-2x sidebar-text-color submenu-active p-2 rounded-circle bg-green'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer-green p-0 pt-4 rounded-bottom"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a th:href="@{'/orders'}">
+                            <div class="card container p-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <span class="font-weight-bold text-green"
+                                                  th:text="${megaCounts.get(1)}"></span><br>
+                                            <label class="text-gray">Total Orders</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <i class='fas fa-parachute-box fa-2x sidebar-text-color submenu-active p-2 rounded-circle bg-green'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer-green p-0 pt-4 rounded-bottom"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a th:href="@{'/menu'}">
+                            <div class="card container p-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <span class="font-weight-bold text-green"
+                                                  th:text="${megaCounts.get(2)}"></span><br>
+                                            <label class="text-gray">Total Menu</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <i class='fas fa-parachute-box fa-2x sidebar-text-color submenu-active p-2 rounded-circle bg-green'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer-green p-0 pt-4 rounded-bottom"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+</div>
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- footer-->
+<th:block th:include="fragment/footer :: footer"></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<script th:src="@{/js/Menu/menu.js}"></script>
+
+</body>
+</html>

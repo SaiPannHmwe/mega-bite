@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mega-Bite | Shop Menu</title>
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <th:block th:include="fragment/style :: head "></th:block>
+
+    <link rel="stylesheet" th:href="@{/plugins/select2/css/select2.css}">
+
+    <style type="text/css">
+        .select2-container .select2-selection--single {
+            height: 38px;
+        }
+
+        .select2-container--default .select2-selection--single {
+            background-color: transparent;
+        !important;
+            border: 1px solid #ced4da;
+        !important;
+            border-radius: 4px;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 40px;
+            right: 6px;
+        }
+    </style>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Shop Menu</h3>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item"><a href="/shopMenu">Shop Menu</a></li>
+                            <li class="breadcrumb-item active">Shop Menu</li>
+                        </ol>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+                    <div class="card container-fluid">
+                        <div class="card-body">
+                            <form class="form-horizontal" id="paymentChannelForm" th:object="${shopMenuForm}">
+                                <input type="hidden" id="id" th:field="*{id}" th:value="${shopMenuForm.id}">
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label font-weight-bold"
+                                               th:text="#{table.header.name}">
+                                        </label>
+                                        <div>
+                                            <select class="select2 form-control" style="width: 100%" id="menuId"
+                                                    th:data-placeholder="#{shop.menu.not.blank}">
+                                            </select>
+                                            <input type="hidden" id="selectedMenuId" th:value="${shopMenuForm.menuId}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label font-weight-bold"
+                                               th:text="#{table.header.price}">
+                                        </label>
+                                        <div>
+                                            <input type="text" class="form-control" id="price"
+                                                   th:value="${shopMenuForm.price}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="col-sm-12 control-label font-weight-bold"
+                                               th:text="#{table.header.image}">
+                                        </label>
+                                        <div class="col-sm-12 mb-3">
+                                            <img th:src="*{url}" class="img-thumbnail img-responsive"
+                                                 style="max-height: 400px;">
+                                        </div>
+                                        <input type="hidden" id="rl" th:field="*{url}">
+                                    </div>
+                                </div>
+
+
+                                <!--<div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <label class="col-sm-12 control-label font-weight-bold"
+                                                   th:text="#{table.header.name}">
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="name"
+                                                       th:value="${shopMenuForm.name}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <label class="col-sm-12 control-label font-weight-bold"
+                                                   th:text="#{table.header.price}">
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="price"
+                                                       th:value="${shopMenuForm.price}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="col-sm-12 control-label font-weight-bold"
+                                               th:text="#{table.header.image}">
+                                        </label>
+                                        <div class="col-sm-12 mb-3">
+                                            <img th:src="*{image}" class="img-thumbnail img-responsive"
+                                                 style="max-height: 400px;">
+                                        </div>
+                                        <input type="hidden" id="image" th:field="*{image}">
+                                    </div>
+
+                                </div>-->
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+
+</div>
+<!-- ./script -->
+
+<!-- ./script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<!--<script th:src="@{/plugins/datatables/jquery.dataTables.js}"></script>
+<script th:src="@{/plugins/datatables-bs4/js/dataTables.bootstrap4.js}"></script>-->
+<script th:src="@{/plugins/jquery-validation/jquery.validate.min.js}"></script>
+<script th:src="@{/plugins/select2/js/select2.full.js}"></script>
+<script th:src="@{/js/ShopMenu/view-shop-menu.js}"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        /* if ($('#id').val() == '') {
+             $('#imgPreview').hide();
+         } else {
+             $('#imgPreview').show();
+         }*/
+
+        $('#imgPreview').hide();
+
+        var fileUpload = document.getElementById("fileupload");
+        fileUpload.onchange = function () {
+            $('#imgPreview').empty();
+            $('#imgPreview').hide();
+
+            $('#isNewImage').val(true);
+
+            if (typeof (FileReader) != "undefined") {
+                var dvPreview = document.getElementById("dvPreview");
+                dvPreview.innerHTML = "";
+                var regex = /\.(gif|jpe?g|jpg|tiff|png|webp|bmp)$/;
+                for (var i = 0; i < fileUpload.files.length; i++) {
+                    var file = fileUpload.files[i];
+                    if (regex.test(file.name.toLowerCase())) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            const img = document.createElement("IMG");
+                            img.setAttribute("style", "max-height: 200px;");
+                            img.setAttribute("class", "img-thumbnail img-responsive");
+
+                            img.src = e.target.result;
+                            dvPreview.appendChild(img);
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        alert(file.name + " is not a valid image file.");
+                        dvPreview.innerHTML = "";
+                        return false;
+                    }
+                }
+            } else {
+                alert("This browser does not support HTML5 FileReader.");
+            }
+        }
+    };
+</script>
+
+</body>
+</html>

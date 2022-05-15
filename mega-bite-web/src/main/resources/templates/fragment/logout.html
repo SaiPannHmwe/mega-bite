@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="logout">
+    <!-- Logout Modal -->
+    <div class="modal fade" id="transactionPasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #FED053;">
+                    <h5 class="modal-title" id="transactionPasswordModalLongTitle" style="color: white;font-weight: 500;text-align: center;">Logout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 mb-2">
+                        <div class="form-group row">
+                            <label for="interestRate" class="col-sm-12 text-center col-form-label">Are you sure you want to logout?</label>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary pl-5 pr-5" data-dismiss="modal">Cancel</button>
+                    <a th:href="@{'/login'}" class="btn btn-bg-color pl-5 pr-5">OK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Logout Modal -->
+</div>
+</body>
+</html>
