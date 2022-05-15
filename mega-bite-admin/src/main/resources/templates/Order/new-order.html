@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mega-Bite | Create Order</title>
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Order
+                        </h3>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item"><a href="/orders">Order</a>
+                            </li>
+                            <li class="breadcrumb-item active">Order</li>
+                        </ol>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <form id="form" method="post" th:action="@{/orders/save}"
+                          modelAttribute="collectForm" th:object="${orderForm}">
+
+                        <div class="row">
+                            <!--<div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-muted text-bold">Shop Information</h4>
+                                        <br>
+                                        <div class="row pt-3">
+                                            <div class="col-md-6">
+                                            <span class="text-bold"
+                                                  th:text="#{table.header.name}"></span>
+                                                <span th:text="${orderForm.shopName}"></span>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <span class="text-bold"
+                                                  th:text="#{table.header.phone.number}"></span>
+                                                <span th:text="${orderForm.shopPhone}"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row pt-3">
+                                            <div class="col-md-6">
+                                            <span class="text-bold"
+                                                  th:text="#{table.header.address}"></span>
+                                                <span th:text="${orderForm.shopAddress}"></span>
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-muted text-bold">Order Information</h4>
+                                        <br>
+                                        <div class="row pt-3">
+                                            <div class="col-md-6">
+                                            <span class="text-bold"
+                                                  th:text="#{table.header.date}"></span>
+                                                <span th:text="${orderForm.date}"></span>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <span class="text-bold"
+                                                  th:text="#{table.header.count}"></span>
+                                                <span th:text="${orderForm.totalCount}"></span>
+                                            </div>
+                                        </div>
+                                        <div class="pt-3">
+                                        <span class="text-bold"
+                                              th:text="#{table.header.address}"></span>
+                                            <span th:text="${orderForm.customerAddress}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6"></div>
+                        </div>
+
+                        <div class="row pt-3 m-1">
+                            <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Customer Detail</h3>
+                        </div>
+
+                        <div class="card h-100" style="width: 100%;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group required col-md-6">
+                                        <label class="control-label font-weight-bold">Name</label>
+                                        <div>
+                                            <input type="text" class="form-control" id="customerName"
+                                                   th:field="*{customerName}">
+                                            <span th:if="${#fields.hasErrors('customerName')}"
+                                                  th:errors="*{customerName}" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group required col-md-6">
+                                        <label class="control-label font-weight-bold">Phone Number</label>
+                                        <div>
+                                            <input type="text" class="form-control" id="customerPhone"
+                                                   th:field="*{customerPhone}">
+                                            <span th:if="${#fields.hasErrors('customerPhone')}"
+                                                  th:errors="*{customerPhone}" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group required col-md-6">
+                                        <label class="control-label font-weight-bold">Address</label>
+                                        <div>
+                                            <input type="text" class="form-control" id="customerAddress"
+                                                   th:field="*{customerAddress}">
+                                            <span th:if="${#fields.hasErrors('customerAddress')}"
+                                                  th:errors="*{customerAddress}" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-4">
+                                    <div class="form-group col-md-6"></div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <div>
+                                                    <a class="btn btn-secondary form-control"
+                                                       id="cancelBtn" role="button"
+                                                       th:href="@{/orders}">Cancel</a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div>
+                                                    <button class="btn btn-bg-color form-control" id="submitBtn"
+                                                            name="submit" type="submit">Save
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="id" th:field="*{id}" th:value="${orderForm.id}">
+
+                                <!--error messages-->
+                                <input type="hidden" id="menu_not_blank" th:value="#{menu.not.blank}"/>
+
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- ./script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+</body>
+</html>

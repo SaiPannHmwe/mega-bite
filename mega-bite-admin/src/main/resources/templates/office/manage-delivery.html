@@ -1,0 +1,376 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/test-sidebar :: sidebar "></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper content-wrapper-bg-color">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin:5px 5px;">Create Account</h3>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item active">Create Account</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <div class="card container-fluid">
+
+                        <!--card body-->
+                        <div class="card-body">
+
+                            <ul class="nav nav-tabs nav-fill" role="tablist">
+                                <li class="nav-item active">
+                                    <a class="nav-link active" href="#tab-credit" data-toggle="tab">Credit Approve</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#tab-debit" data-toggle="tab">Debit Approve</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#tab-complete" data-toggle="tab">Completed Approve</a>
+                                </li>
+                            </ul>
+
+                            <div class="mt-5">
+                                <div class="tab-content">
+
+                                    <div class="tab-pane active" id="tab-credit">
+                                        <table class="table table-responsive w-100 d-block d-md-table" id="creditTable">
+                                            <thead>
+                                            <tr class="text-white">
+                                                <th width="6%" class="text-center">No</th>
+                                                <th class="text-center">ID</th>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Payment</th>
+                                                <th class="text-center">Date</th>
+                                                <th width="7%" class="text-center">Balance</th>
+                                                <th width="7%" class="text-center">Request Status</th>
+                                                <th width="7%" class="text-center">View Details</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">M1234</td>
+                                                <td class="text-right">Ye Maung</td>
+                                                <td class="text-right">KBZ Pay</td>
+
+                                                <td class="text-center">20-06-2020</td>
+                                                <td class="text-center">50000</td>
+
+
+                                                <td class="text-center primary-color">
+                                       <span class="table-remove">
+										<button type="button"
+                                                class="btn btn-primary btn-rounded btn-sm my-0">Complete</button></span>
+                                                </td>
+                                                <td class="text-center primary-color">
+                                                    <a href="OfficeAccountDetail.html">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="text-right">2</td>
+                                                <td class="text-right">M1234</td>
+                                                <td class="text-right">Phyoe Maung</td>
+                                                <td class="text-right">KBZ Pay</td>
+
+                                                <td class="text-center">20-06-2020</td>
+                                                <td class="text-center">50000</td>
+                                                <td class="text-center primary-color">
+                                       <span class="table-remove">
+										<button type="button"
+                                                class="btn btn-primary btn-rounded btn-sm my-0">Complete</button></span>
+                                                </td>
+                                                <td class="text-center primary-color">
+                                                    <a href="OfficeAccountDetail.html">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="text-right">3</td>
+                                                <td class="text-right">M1234</td>
+                                                <td class="text-right">Thet Maung</td>
+                                                <td class="text-right">KBZ Pay</td>
+                                                <td class="text-center">20-06-2020</td>
+
+                                                <td class="text-center">50000</td>
+                                                <td class="text-center primary-color">
+                                       <span class="table-remove">
+										<button type="button"
+                                                class="btn btn-primary btn-rounded btn-sm my-0">Complete</button></span>
+                                                </td>
+                                                <td class="text-center primary-color">
+                                                    <a href="OfficeAccountDetail.html">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane" id="tab-debit">
+                                        <table class="table table-responsive w-100 d-block d-md-table" id="debitTable">
+                                            <thead>
+                                            <tr class="text-white">
+                                                <th width="6%" class="text-center">No</th>
+                                                <th class="text-center">ID</th>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Payment</th>
+                                                <th class="text-center">Date</th>
+                                                <th width="7%" class="text-center">Balance</th>
+                                                <th width="7%" class="text-center">Request Status</th>
+                                                <th width="7%" class="text-center">View Details</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">M1234</td>
+                                                <td class="text-right">Ye Maung</td>
+                                                <td class="text-right">KBZ Pay</td>
+
+                                                <td class="text-center">20-06-2020</td>
+                                                <td class="text-center">50000</td>
+
+
+                                                <td class="text-center primary-color">
+                                       <span class="table-remove">
+										<button type="button"
+                                                class="btn btn-primary btn-rounded btn-sm my-0">Complete</button></span>
+                                                </td>
+                                                <td class="text-center primary-color">
+                                                    <a href="OfficeAccountDetail.html">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="text-right">2</td>
+                                                <td class="text-right">M1234</td>
+                                                <td class="text-right">Phyoe Maung</td>
+                                                <td class="text-right">KBZ Pay</td>
+
+                                                <td class="text-center">20-06-2020</td>
+                                                <td class="text-center">50000</td>
+                                                <td class="text-center primary-color">
+                                       <span class="table-remove">
+										<button type="button"
+                                                class="btn btn-primary btn-rounded btn-sm my-0">Complete</button></span>
+                                                </td>
+                                                <td class="text-center primary-color">
+                                                    <a href="OfficeAccountDetail.html">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="text-right">3</td>
+                                                <td class="text-right">M1234</td>
+                                                <td class="text-right">Thet Maung</td>
+                                                <td class="text-right">KBZ Pay</td>
+                                                <td class="text-center">20-06-2020</td>
+
+                                                <td class="text-center">50000</td>
+                                                <td class="text-center primary-color">
+                                       <span class="table-remove">
+										<button type="button"
+                                                class="btn btn-primary btn-rounded btn-sm my-0">Complete</button></span>
+                                                </td>
+                                                <td class="text-center primary-color">
+                                                    <a href="OfficeAccountDetail.html">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane" id="tab-complete">
+                                        <table class="table table-responsive w-100 d-block d-md-table" id="completedTable">
+                                            <thead>
+                                            <tr class="text-white">
+                                                <th width="6%" class="text-center">No</th>
+                                                <th class="text-center">ID</th>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Payment</th>
+                                                <th class="text-center">Date</th>
+
+                                                <th width="7%" class="text-center">View Details</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">M1234</td>
+                                                <td class="text-right">Ye Maung</td>
+                                                <td class="text-right">KBZ Pay</td>
+
+                                                <td class="text-center">20-06-2020</td>
+
+                                                <td class="text-center primary-color">
+                                                    <a href="OfficeAccountDetail.html">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="text-right">2</td>
+                                                <td class="text-right">M1234</td>
+                                                <td class="text-right">Phyoe Maung</td>
+                                                <td class="text-right">KBZ Pay</td>
+
+                                                <td class="text-center">20-06-2020</td>
+
+                                                <td class="text-center primary-color">
+                                                    <a href="OfficeAccountDetail.html">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="text-right">3</td>
+                                                <td class="text-right">M1234</td>
+                                                <td class="text-right">Thet Maung</td>
+                                                <td class="text-right">KBZ Pay</td>
+                                                <td class="text-center">20-06-2020</td>
+
+
+                                                <td class="text-center primary-color">
+                                                    <a href="OfficeAccountDetail.html">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#creditTable').DataTable({
+            "columnDefs": [{
+                "orderable": true
+            }]
+        });
+
+        $('#debitTable').DataTable({
+            "columnDefs": [{
+                "orderable": true
+            }]
+        });
+
+
+        $('#completedTable').DataTable({
+            "columnDefs": [{
+                "orderable": true
+            }]
+        });
+    });
+
+    $('#example').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "employees",
+            "type": "POST",
+            "dataType": "json",
+            "contentType": "application/json",
+            "data": function (d) {
+                return JSON.stringify(d);
+            }
+        },
+        "columns": [
+            {"data": "name", "width": "20%"},
+            {"data": "position", "width": "20%"},
+            {"data": "office", "width": "20%"},
+            {"data": "start_date", "width": "20%"},
+            {"data": "salary", "width": "20%"}
+        ]
+    });
+
+    function makeRemittance() {
+        location.replace("OwnBankBeneficiaryAcc.html");
+    }
+
+
+</script>
+</body>
+
+</html>

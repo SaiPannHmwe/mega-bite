@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Version</h3>
+                        <a class="btn-xs icon-bg-color" href="/versions/new"
+                           data-toggle="tooltip" data-placement="top"
+                           title="Create Version"> <i class="fa fa-plus m-0 text-white"></i>
+                        </a>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin: 5px 5px;">
+                            <li class="breadcrumb-item active">Version</li>
+                        </ol>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+                    <!--start form-->
+                    <div class="card container-fluid">
+                        <!--<div class="card-header">
+                            <div class="justify-content-center">
+                                <div class="searchData row">
+                                    <span class="col-sm-2 form-group">
+                                        <label class="control-label font-weight-bold "
+                                               th:text="#{versions.search.platform}"></label>
+                                        <select class="form-control js-example-basic-single" style="width: 100%"
+                                                id="platform" name="platform">
+                                            <option th:each="platform:${platforms}" th:value="${platform}"
+                                                    th:text="${platform}"></option>
+                                        </select>
+                                    </span>
+                                    <span class="col-sm-2 form-group">
+                                        <label class="control-label font-weight-bold "
+                                               th:text="#{versions.search.type}"></label>
+                                        <select class="form-control js-example-basic-single" style="width: 100%"
+                                                id="type" name="type">
+                                            <option th:each="type:${types}" th:value="${type}"
+                                                    th:text="${type}"></option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="card-body">
+                            <table id="version-table" class="table table-responsive w-100 d-block d-md-table">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Code</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Platform</th>
+                                    <th class="text-center">Description</th>
+                                    <th class="text-center">View</th>
+                                    <th class="text-center">Edit</th>
+                                    <th class="text-center">Delete</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+
+        <!-- start myModal-->
+
+        <!--<div id="deleteConfirmModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" th:text="#{version.delete.modal.title}"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" th:text="#{version.delete.modal.body}"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary-color text-white pl-5 pr-5"
+                                data-dismiss="modal" th:text="#{button.close}">
+                        </button>
+                        <a id="delRef">
+                            <button type="button" class="btn text-white btn-bg-color pl-5 pr-5"
+                                    th:text="#{button.delete}">
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>-->
+
+        <!-- end myModal-->
+    </div>
+
+</div>
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+<!--<script th:src="@{../plugins/datatables/jquery.dataTables.js}"></script>
+<script th:src="@{../plugins/datatables-bs4/js/dataTables.bootstrap4.js}"></script>-->
+<script th:src="@{/js/version.js}"></script>
+</body>
+</html>

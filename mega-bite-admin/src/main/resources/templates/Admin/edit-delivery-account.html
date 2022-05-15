@@ -1,0 +1,261 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title> Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- header -->
+    <th:block th:include="fragment/test-header :: header "></th:block>
+
+    <!-- sidebar -->
+    <th:block th:include="fragment/admin-sidebar :: sidebar "></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper content-wrapper-bg-color">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin: 5px 5px;">Delivery Man Detail</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item"><a th:href="@{/delivery-men}">Delivery Men</a>
+                            </li>
+                            <li class="breadcrumb-item active">Delivery Man Edit</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <div class="container-fluid">
+
+                        <!--card body-->
+                        <div class="card-body">
+
+                            <form action="#" id="form1" th:action="@{/delivery-men/update}"
+                                  modelAttribute="staffRequest" th:object="${staffRequest}" method="post"
+                                  class="form-horizontal">
+
+                                <div class="row">
+                                    <div class="card w-100">
+                                        <div class="card-body">
+                                            <div class="row">
+
+                                                <!--Name-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="name" class="col-sm-11 col-form-label">Name</label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="name"
+                                                                   name="name" th:value="${staff.name}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--Phone Number-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="mobileNo" class="col-sm-11 col-form-label">Mobile
+                                                            No.</label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="mobileNo"
+                                                                   name="phoneNumber" th:value="${staff.phoneNumber}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <!--User Name-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="userName" class="col-sm-11 col-form-label">User
+                                                            Name</label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="userName"
+                                                                   name="userName" th:value="${staff.userName}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--NRC-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="nrc" class="col-sm-11 col-form-label">NRC</label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="nrc" name="nrc"
+                                                                   th:value="${staff.nrc}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="row">
+
+                                                <!--Staff Role-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="role" class="col-sm-11 col-form-label">Account
+                                                            Type</label>
+                                                        <div class="col-sm-11">
+                                                            <select class="form-control" id="role"
+                                                                    name="role">
+                                                                <option th:each="role:${T(mm.com.mtp.type.StaffRole).values()}"
+                                                                        th:value="${role}"
+                                                                        th:text="${role}"
+                                                                        th:selected="${staff.role == role}"></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--Address-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="address"
+                                                               class="col-sm-11 col-form-label">Address</label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="address"
+                                                                   name="address" th:value="${staff.address}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <!--Staff ID-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label for="staffId" class="col-sm-11 col-form-label">Staff
+                                                            Id</label>
+                                                        <div class="col-sm-11">
+                                                            <input type="text" class="form-control" id="staffId"
+                                                                   name="staffId" th:value="${staff.staffId}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--Department-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-11 col-form-label">Department</label>
+                                                        <div class="col-sm-11">
+                                                            <select class="form-control" id="selDepartment"
+                                                                    name="departmentId">
+                                                                <option th:each="department:${departments}"
+                                                                        th:value="${department.id}"
+                                                                        th:text="${department.name}"
+                                                                        th:selected="${department.name==staff.departmentName}"></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <!--Entry Date-->
+                                                <div class="col-md-6" th:if="${staff.entryDate!=null}">
+                                                    <div class="form-group row">
+                                                        <label for="entryDate"
+                                                               class="col-sm-11 col-form-label">Start Working
+                                                            Date</label>
+                                                        <div class="col-sm-11 ">
+                                                            <input type="text" class="form-control" id="entryDate"
+                                                                   name="entryDate" th:value="${staff.entryDate}"
+                                                                   readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!--Resign Date-->
+                                                <div class="col-md-6" th:if="${staff.resignDate!=null}">
+                                                    <div class="form-group row">
+                                                        <label for="resignDate"
+                                                               class="col-sm-11 col-form-label">End Date</label>
+                                                        <div class="col-sm-11 ">
+                                                            <input type="text" class="form-control" id="resignDate"
+                                                                   name="resignDate" th:value="${staff.resignDate}"
+                                                                   readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="id" name="id" th:value="${staff.id}"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-6 pr-0">
+                                        <div class="float-right">
+                                            <a onclick="history.go(-1)">
+                                                <button type="button" class="btn btn-outline-color pl-3 pr-3">
+                                                    Cancel
+                                                </button>
+                                            </a>
+                                            <button class="btn btn-bg-color pl-5 pr-5 ml-2" name="submit"
+                                                    type="submit">Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<!-- Logout Modal -->
+<th:block th:include="fragment/logout :: logout "></th:block>
+
+<!-- script -->
+<th:block th:include="fragment/script :: script"></th:block>
+
+</body>
+
+</html>

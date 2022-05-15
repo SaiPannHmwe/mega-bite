@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Myanmar Transporting Power</title>
+
+    <!-- add icon link -->
+    <th:block th:include="fragment/heading :: heading "></th:block>
+
+    <!--Style File-->
+    <th:block th:include="fragment/style :: head "></th:block>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <th:block th:include="fragment/test-header :: header"></th:block>
+
+    <th:block th:include="fragment/admin-sidebar :: sidebar"></th:block>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper content-wrapper-bg-color">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title font-weight-bold" style="margin:5px 5px;">New Department</h3>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" style="margin:5px 5px;">
+                            <li class="breadcrumb-item"><a href="/departments">Departments</a></li>
+                            <li class="breadcrumb-item active">New</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="justify-content-center">
+
+                    <div class="card container-fluid ">
+
+                        <div class="card-body">
+
+
+                            <!-- start form -->
+
+                            <form action="#" class="form-horizontal" id="form" method="post"
+                                  th:action="@{/departments/save}"
+                                  modelAttribute="departmentRequest" th:object="${departmentRequest}">
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label font-weight-bold ">Name
+                                        <span class="red">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="name"
+                                               name="name" th:field="*{name}">
+                                        <span th:if="${#fields.hasErrors('name')}"
+                                              th:errors="*{name}" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="hr-dashed"></div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-8 col-sm-offset-4">
+                                        <a onclick="history.go(-1)">
+                                            <button type="button" class="btn btn-outline-color pl-5 pr-5">
+                                                Cancel
+                                            </button>
+                                        </a>
+                                        <button class="btn btn-bg-color pl-5 pr-5" name="submit" type="submit">Save
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+
+                    </div> <!--end card-->
+
+                </div>
+                <!-- /.row -->
+                <!-- Main row -->
+
+                <!-- /.row (main row) -->
+            </div><!-- /.container-fluid -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <!-- Logout Modal -->
+    <th:block th:include="fragment/logout :: logout "></th:block>
+
+    <!-- script -->
+    <th:block th:include="fragment/script :: script"></th:block>
+
+</body>
+
+</html>

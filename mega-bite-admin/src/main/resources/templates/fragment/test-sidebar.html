@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shield DMS</title>
+</head>
+<body>
+<div th:fragment="sidebar">
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar elevation-2  sidebar-bg-color ">
+
+        <!-- Brand Logo -->
+        <a href="/" class="brand-link">
+            <img src="/images/main/logoOnly.png" alt="MTP Logo" class="brand-image "/>
+            <span class="brand-text  text-white">MTP Express</span>
+        </a>
+
+        <hr class="mt-0">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+
+            <!-- Sidebar Menu -->
+            <nav>
+                <ul class="nav nav-pills  nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+
+                    <li class="nav-item ">
+                        <a th:href="@{'/upload-order'}" class="nav-link text-alignment">
+                            <i class="material-icons sidebar-text-color">publish</i>
+                            <span class="sidebar-text-color">Upload Excel File</span>
+                        </a>
+                    </li>
+
+                        <li class="nav-item ">
+                            <a th:href="@{/delivered-orders}" class="nav-link text-alignment ">
+                                <i class="material-icons sidebar-text-color">move_to_inbox</i>
+                                <span class="sidebar-text-color">Order Condition</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a th:href="@{/pending-payment}" class="nav-link text-alignment">
+                                <i class="material-icons sidebar-text-color">add_shopping_cart</i>
+                                <span class="sidebar-text-color">Payment</span>
+                                <p class="badge badge-info right"
+                                   id="paymentCount"></p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a th:href="@{/credit-payments}" class="nav-link text-alignment">
+                                <i class="material-icons sidebar-text-color">add_shopping_cart</i>
+                                <span class="sidebar-text-color">Payment History</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a th:href="@{/transportation}" class="nav-link text-alignment">
+                                <i class="material-icons sidebar-text-color">payment</i>
+                                <span class="sidebar-text-color">Transportation</span>
+                                <p class="badge badge-info right"
+                                   id="transportationCount"></p>
+                            </a>
+                        </li>
+
+                    <li class="nav-item ">
+                        <a th:href="@{'/change-password'}" class="nav-link text-alignment">
+                            <i class="material-icons sidebar-text-color">lock</i>
+                            <span class="sidebar-text-color">Change Password</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{'/login'}" class="nav-link text-alignment" data-toggle="modal"
+                           data-target="#transactionPasswordModal">
+                            <i class="material-icons sidebar-text-color">logout</i>
+                            <span class="sidebar-text-color">Logout</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a href="#" class="nav-link">
+                            <i class="sidebar-text-color"></i>
+                            <p class="sidebar-text-color"></p>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+</div>
+<!-- ./script -->
+</body>
+</html>
